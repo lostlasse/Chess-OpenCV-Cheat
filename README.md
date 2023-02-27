@@ -22,7 +22,7 @@ A python script that can use object recognition to calculate the smartest move.
    https://user-images.githubusercontent.com/100237052/221702753-3d7b51da-d141-404f-96c4-dab0a72e5da3.mp4
    
    __Attention: The window size of the chess game must remain the same, as when the pictures were taken.__<br>
-   4. Run the *ChessAiCheat.exe*<br>
+   4. Run the executable<br>
    5. Use the *X*, *Y* and the *Offset* sliders to math the grid<br>
    6. Position the *Off->On* slider to *On* to disable the positioning<br>
    7. Position the *calc* slider to *On* to calculate the next best move<br>
