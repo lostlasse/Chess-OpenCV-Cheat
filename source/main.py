@@ -6,6 +6,7 @@ import math
 import chess_ai
 import mss.tools
 from screeninfo import get_monitors
+import os.path
 
 white_figures = {"Pawns" : [], "Knights" : [], "Rooks" : [], "Bishops" : [], "Queen" : [], "King" : []} # array for the standart layout of the white figures
 black_figures = {"Pawns" : [], "Knights" : [], "Rooks" : [], "Bishops" : [], "Queen" : [], "King" : []} # array for the standart layout of the black figures
@@ -27,7 +28,7 @@ def createSliders(): # creates sliders window
     cv2.createTrackbar("Y-Coord", "Sliders", 0, screen_height, nothing)
     cv2.createTrackbar("X-Offset", "Sliders", 0, screen_width, nothing)
     cv2.createTrackbar("Y-Offset", "Sliders", 0, screen_height, nothing)
-    cv2.createTrackbar("Confidencee", "Sliders", 70, 100, nothing)
+    cv2.createTrackbar("Confidence", "Sliders", 70, 100, nothing)
     cv2.createTrackbar("minDistance", "Sliders", 10, 50, nothing)
     cv2.createTrackbar("W->B", "Sliders", 0, 1, nothing)
     cv2.createTrackbar("Off->On", "Sliders", 0, 1, nothing)
@@ -40,7 +41,7 @@ def get_slider_pos(): # get positions from the sliders
 def findFigures(img): # search chess figures in the given image
     global white_figures, black_figures, white_color, black_color
 
-    confidence = cv2.getTrackbarPos("Confidencee", "Sliders") / 100
+    confidence = cv2.getTrackbarPos("Confidence", "Sliders") / 100
     minDist = cv2.getTrackbarPos("minDistance", "Sliders")
 
     # for Black Figures    
@@ -182,6 +183,19 @@ def get_own_color(): # checks own color and adjust the colors
         own_color = "B"
         white_color = (0,0,255)
         black_color = (0,255,0)
+
+def check_for_error():
+    for figure in ["Pawns", "Knights", "Rooks", "Bishops", "Queen", "King"]:
+        for folder in ["black", "white"]:
+            if not os.path.isfile(f"{folder}\{figure}.png"):
+                print(f"The {figure} inside the {folder} folder is missing")
+
+    if not os.path.isfile(f"config.json"):
+        print("The config.json is missing")
+
+
+# checking for errors
+check_for_error()
 
 # Get Monitor
 monitor_sizes = []
