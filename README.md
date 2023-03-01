@@ -3,6 +3,8 @@ A python script that can use object recognition to calculate the smartest move.
 
 ![Preview](https://user-images.githubusercontent.com/100237052/221702814-32e00b02-61c0-42a6-b2c7-94e6827aa89d.png)
 
+**In developing, not finished yet!**
+
 ## Dependencies
 - [Stockfish](https://stockfishchess.org/download/)
 - Python Dependencies (only if using source files):
