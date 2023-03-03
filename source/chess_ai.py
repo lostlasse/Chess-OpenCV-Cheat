@@ -57,7 +57,7 @@ def pieces_to_map(input_map, input_pieces, color): # adds the input peaces to th
             
             input_map[ypos][xpos] = code
 
-            print(f'adding \'{key}\' ({code}) item ({coords}) -> ({ypos}|{xpos})')
+            # print(f'adding \'{key}\' ({code}) item ({coords}) -> ({ypos}|{xpos})')
     
     return input_map
 
